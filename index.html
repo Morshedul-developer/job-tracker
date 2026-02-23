@@ -26,7 +26,7 @@
     </style>
   </head>
   <body class="bg-[#F8FAFC] pb-[60px]">
-    <header class="max-w-7xl mx-auto pt-5 mb-8">
+    <header class="max-w-[70%] mx-auto pt-5 mb-8">
       <h1 class="text-[#002C5C] text-[32px] font-bold leading-8 mb-5">
         Job Tracker
       </h1>
@@ -51,7 +51,7 @@
     </header>
     <hr class="border-t border-gray-300 mb-8" />
 
-    <main class="max-w-7xl mx-auto">
+    <main class="max-w-[70%] mx-auto">
       <section>
         <div class="flex justify-between mb-6">
           <strong>Available Jobs</strong>
@@ -59,11 +59,46 @@
         </div>
 
         <!-- buttons -->
-         <div class="flex gap-2 mb-4">
+        <div class="flex gap-2 mb-4">
           <button id="btn-all" class="btn bg-primary text-white">All</button>
-          <button id="btn-interview" class="btn bg-primary text-white">Interview</button>
-          <button id="btn-rejected" class="btn bg-primary text-white">Rejected</button>
-         </div>
+          <button id="btn-interview" class="btn bg-primary text-white">
+            Interview
+          </button>
+          <button id="btn-rejected" class="btn bg-primary text-white">
+            Rejected
+          </button>
+        </div>
+
+        <!-- job list -->
+        <div id="job-list">
+          <!-- card-1 -->
+          <div class="space-y-5 bg-white p-6 border border-gray-200 rounded-lg">
+            <div>
+              <h2 class="text-[18px] font-semibold leading-[26px] mb-1">
+                Mobile First Corp
+              </h2>
+              <h3 class="leading-[22px] text-gray-500">React Native Developer</h3>
+            </div>
+            <div class="flex gap-7 text-gray-500">
+              <p>Remote</p>
+              <ul class="flex gap-7">
+                <li class="list-disc">Full-time</li>
+                <li class="list-disc">$130,000 - $175,000</li>
+              </ul>
+            </div>
+            <div>
+              <p class="bg-[#EEF4FF] inline-block text-[14px] font-medium leading-5 px-3 py-2 mb-2">NOT APPLIED</p>
+              <p class="leading-5 text-[14px] text-[#323B49]">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+            </div>
+            <div class="flex gap-2">
+              <button class="btn btn-outline btn-success">INTERVIEW</button>
+              <button class="btn btn-outline btn-error">REJECTED</button>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   </body>
