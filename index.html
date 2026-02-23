@@ -60,7 +60,6 @@
     <hr class="border-t border-gray-300 mb-8" />
 
     <main class="max-w-[70%] mx-auto">
-      <section>
         <div class="flex justify-between mb-6">
           <strong>Available Jobs</strong>
           <p class="text-gray-500"><span id="available-jobs">0</span> jobs</p>
@@ -394,7 +393,13 @@
             </div>
           </div>
         </div>
-      </section>
+
+        <!-- no jobs -->
+         <div id="no-jobs" class="text-center bg-white border border-gray-200 rounded-lg py-28 hidden">
+          <img class="mx-auto" src="./assets/jobs.png" alt="">
+          <h5 class="text-[24px] leading-8 font-semibold mb-1">No jobs available</h5>
+          <p class="leading-[22px] text-gray-500">Check back soon for new job opportunities</p>
+         </div>
     </main>
 
     <!-- script -->

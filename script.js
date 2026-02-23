@@ -5,6 +5,7 @@ const jobList = document.getElementById("job-list");
 const interviewJobs = document.getElementById("interview");
 const rejectedJobs = document.getElementById("rejected");
 const availableJobs = document.getElementById("available-jobs");
+const noJobs = document.getElementById("no-jobs");
 
 const allBtn = document.getElementById("btn-all");
 const interviewBtn = document.getElementById("btn-interview");
@@ -32,3 +33,19 @@ function toggleButtons(id) {
     selected.classList.add('btn-primary');
     selected.classList.remove('btn-outline-gray-500')
 }
+
+allBtn.addEventListener('click', function(){
+    jobList.classList.remove('hidden');
+    noJobs.classList.remove('block');
+    noJobs.classList.add('hidden');
+})
+interviewBtn.addEventListener('click', function(){
+    noJobs.classList.remove('hidden');
+    noJobs.classList.add('block');
+    jobList.classList.add('hidden');
+})
+rejectedBtn.addEventListener('click', function(){
+    noJobs.classList.remove('hidden');
+    noJobs.classList.add('block');
+    jobList.classList.add('hidden');
+})
