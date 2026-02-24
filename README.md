@@ -37,9 +37,9 @@ When we click an element, the event goes through 3 phases:
 
 ## What is Event Delegation in JavaScript? Why is it useful?
 Ans:<br>
-Event Delegation: Event Delegation is a technique where a parent element manages events for its child elements using event bubbling, making code more efficient and scalable.
+Event Delegation: Event Delegation is a technique where a parent element manages events for its child elements using event bubbling.
 
-When a child element is clicked, the event bubbles up to the parent. The parent can detect which child triggered the event and respond accordingly.
+Actually, when a child element is clicked, the event bubbles up to the parent. Then parent can detect that in whivh child the event has occured.
 
 It is useful for:
 - Instead of using more event listeners to many elements, we can use only one. This reduces memory usage.
