@@ -1,104 +1,110 @@
-const interview = [];
-const rejected = [];
+const interviewList = [];
+const rejectedList = [];
 
 const jobList = document.getElementById("job-list");
 const interviewJobs = document.getElementById("interview");
 const rejectedJobs = document.getElementById("rejected");
 const availableJobs = document.getElementById("available-jobs");
-const totalJobs = document.getElementById('total');
-const interviewCount = document.getElementById('interview');
-const rejectedCount = document.getElementById('rejected');
+const totalJobs = document.getElementById("total");
+const interviewCount = document.getElementById("interview");
+const rejectedCount = document.getElementById("rejected");
 const noJobs = document.getElementById("no-jobs");
 
 const mainContainer = document.querySelector("main");
 const filterSection = document.getElementById("filter-section");
 
 const allBtn = document.getElementById("btn-all");
-const interviewBtn = document.getElementById("btn-interview");
-const rejectedBtn = document.getElementById("btn-rejected");
+const interviewBtn = document.getElementById("filter-btn-interview");
+const rejectedBtn = document.getElementById("filter-btn-rejected");
 
 // count the jobs
 function jobCounts() {
-    totalJobs.innerText = jobList.children.length;
-    availableJobs.innerText = jobList.children.length;
-    interviewCount.innerText = interview.length;
-    rejectedCount.innerText = rejected.length;
+  totalJobs.innerText = jobList.children.length;
+  availableJobs.innerText = jobList.children.length;
+  interviewCount.innerText = interviewList.length;
+  rejectedCount.innerText = rejectedList.length;
 }
 jobCounts();
 
 // toggling the buttons
 function toggleButtons(id) {
-    allBtn.classList.add('btn-outline-gray-500')
-    interviewBtn.classList.add('btn-outline-gray-500')
-    rejectedBtn.classList.add('btn-outline-gray-500')
+  allBtn.classList.add("btn-outline-gray-500");
+  interviewBtn.classList.add("btn-outline-gray-500");
+  rejectedBtn.classList.add("btn-outline-gray-500");
 
-    allBtn.classList.remove('btn-primary')
-    interviewBtn.classList.remove('btn-primary')
-    rejectedBtn.classList.remove('btn-primary')
+  allBtn.classList.remove("btn-primary");
+  interviewBtn.classList.remove("btn-primary");
+  rejectedBtn.classList.remove("btn-primary");
 
-    const selected = document.getElementById(id);
-    selected.classList.add('btn-primary');
-    selected.classList.remove('btn-outline-gray-500')
+  const selected = document.getElementById(id);
+  selected.classList.add("btn-primary");
+  selected.classList.remove("btn-outline-gray-500");
+
+  if (id == "btn-all") {
+    jobList.classList.remove("hidden");
+    noJobs.classList.remove("block");
+    noJobs.classList.add("hidden");
+    filterSection.classList.add("hidden");
+  } else if (id == "filter-btn-interview") {
+    noJobs.classList.remove("hidden");
+    noJobs.classList.add("block");
+    jobList.classList.add("hidden");
+    filterSection.classList.remove("hidden");
+    if(interviewList.length !== 0) {
+        noJobs.classList.add("hidden");
+        noJobs.classList.remove("block");
+    }
+  } else if (id == "filter-btn-rejected") {
+    noJobs.classList.remove("hidden");
+    noJobs.classList.add("block");
+    jobList.classList.add("hidden");
+  }
 }
 
-allBtn.addEventListener('click', function(){
-    jobList.classList.remove('hidden');
-    noJobs.classList.remove('block');
-    noJobs.classList.add('hidden');
-})
-interviewBtn.addEventListener('click', function(){
-    noJobs.classList.remove('hidden');
-    noJobs.classList.add('block');
-    jobList.classList.add('hidden');
-})
-rejectedBtn.addEventListener('click', function(){
-    noJobs.classList.remove('hidden');
-    noJobs.classList.add('block');
-    jobList.classList.add('hidden');
-})
+// main functionality
+mainContainer.addEventListener("click", function (event) {
+  if (event.target.classList.contains("btn-interview")) {
+    const parentNode = event.target.parentNode.parentNode;
 
-mainContainer.addEventListener('click',function(event){
-    if(event.target.classList.contains('btn-interview')) {
-        const parentNode = event.target.parentNode.parentNode;
+    const company = parentNode.querySelector(".company").innerText;
+    const position = parentNode.querySelector(".position").innerText;
+    const location = parentNode.querySelector(".location").innerText;
+    const type = parentNode.querySelector(".type").innerText;
+    const salary = parentNode.querySelector(".salary").innerText;
+    const description = parentNode.querySelector(".description").innerText;
+    const status = parentNode.querySelector(".not-applied");
+    status.classList.add("text-success");
 
-    const company = parentNode.querySelector('.company').innerText;
-    const position = parentNode.querySelector('.position').innerText;
-    const location = parentNode.querySelector('.location').innerText;
-    const type = parentNode.querySelector('.type').innerText;
-    const salary = parentNode.querySelector('.salary').innerText;
-    const description = parentNode.querySelector('.description').innerText;
-    const status = parentNode.querySelector('.not-applied');
-    status.classList.add('text-success');
-    
-    parentNode.querySelector('.not-applied').innerText = "Applied";
-    
+    parentNode.querySelector(".not-applied").innerText = "Applied";
 
     const cardInfo = {
-        company,
-        position,
-        location,
-        type,
-        salary,
-        status: 'Applied',
-        description
-    }
-    
-    const companyExist = interview.find(item=> item.company == cardInfo.company);
+      company,
+      position,
+      location,
+      type,
+      salary,
+      status: "Applied",
+      description,
+    };
 
-    if(!companyExist) {
-        interview.push(cardInfo);
-        jobCounts();
+    const companyExist = interviewList.find(
+      (item) => item.company == cardInfo.company,
+    );
+
+    if (!companyExist) {
+      interviewList.push(cardInfo);
     }
+    jobCounts();
     renderInterviewJobs();
-    }
+  }
 });
 
 function renderInterviewJobs() {
-    filterSection.innerHTML = '';
+  filterSection.innerHTML = "";
 
-    for(let item of interview) {
-        const div = document.createElement('div');
-    div.className = 'space-y-5 bg-white p-6 border border-gray-200 rounded-lg';
+  for (let item of interviewList) {
+    const div = document.createElement("div");
+    div.className = "space-y-5 bg-white p-6 border border-gray-200 rounded-lg";
     div.innerHTML = `
     <div class="flex justify-between items-center">
               <div>
@@ -138,5 +144,5 @@ function renderInterviewJobs() {
             </div>
     `;
     filterSection.appendChild(div);
-    }
+  }
 }
