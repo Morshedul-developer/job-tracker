@@ -15,13 +15,13 @@ JS code : document.querySelectorAll(".box");
 
 ## How do you create and insert a new element into the DOM?
 Ans:
-- Step-1: Select the parent
+- Step-1: Select the parent<br>
 const parent = document.getElementById("container");
-- Step-2: Create an element
+- Step-2: Create an element<br>
 const div = document.createElement("div");
-- Step-3: Add content
+- Step-3: Add content<br>
 div.innerHTML = "<b>Hello World</b>";
-- Step-4: Append to the parent
+- Step-4: Append to the parent<br>
 parent.appendChild(div);
 
 
