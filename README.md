@@ -16,13 +16,13 @@ JS code : document.querySelectorAll(".box");
 ## How do you create and insert a new element into the DOM?
 Ans:
 Step-1: Select the parent
-const parent = document.getElementById("container");
+const parent = document.getElementById("container")
 Step-2: Create an element
-const div = document.createElement("div");
+const div = document.createElement("div")
 Step-3: Add content
-div.innerHTML = "<b>Hello World</b>";
+div.innerHTML = "<b>Hello World</b>"
 Step-3: Append to the parent
-parent.appendChild(div);
+parent.appendChild(div)
 
 
 ## What is Event Bubbling? And how does it work?
