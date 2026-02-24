@@ -50,18 +50,18 @@ function toggleButtons(id) {
     noJobs.classList.add("block");
     jobList.classList.add("hidden");
     filterSection.classList.remove("hidden");
-    if(interviewList.length !== 0) {
-        noJobs.classList.add("hidden");
-        noJobs.classList.remove("block");
+    if (interviewList.length !== 0) {
+      noJobs.classList.add("hidden");
+      noJobs.classList.remove("block");
     }
   } else if (id == "filter-btn-rejected") {
     noJobs.classList.remove("hidden");
     noJobs.classList.add("block");
     jobList.classList.add("hidden");
     filterSection.classList.remove("hidden");
-    if(rejectedList.length !== 0) {
-        noJobs.classList.add("hidden");
-        noJobs.classList.remove("block");
+    if (rejectedList.length !== 0) {
+      noJobs.classList.add("hidden");
+      noJobs.classList.remove("block");
     }
   }
 }
@@ -78,7 +78,7 @@ mainContainer.addEventListener("click", function (event) {
     const salary = parentNode.querySelector(".salary").innerText;
     const description = parentNode.querySelector(".description").innerText;
     const status = parentNode.querySelector(".not-applied");
-    status.classList.add("text-success");
+    status.classList.add("text-info");
 
     parentNode.querySelector(".not-applied").innerText = "Applied";
 
@@ -101,8 +101,7 @@ mainContainer.addEventListener("click", function (event) {
     }
     jobCounts();
     renderInterviewJobs();
-  }
-  else if (event.target.classList.contains("btn-rejected")) {
+  } else if (event.target.classList.contains("btn-rejected")) {
     const parentNode = event.target.parentNode.parentNode;
 
     const company = parentNode.querySelector(".company").innerText;
@@ -112,7 +111,7 @@ mainContainer.addEventListener("click", function (event) {
     const salary = parentNode.querySelector(".salary").innerText;
     const description = parentNode.querySelector(".description").innerText;
     const status = parentNode.querySelector(".not-applied");
-    status.classList.add("text-error");
+    status.classList.add("text-info");
 
     parentNode.querySelector(".not-applied").innerText = "Rejected";
 
@@ -135,6 +134,13 @@ mainContainer.addEventListener("click", function (event) {
     }
     jobCounts();
     renderRejectedJobs();
+  } 
+  else if (event.target.closest(".btn-delete")) {
+    const btn = event.target.closest(".btn-delete");
+    const card = btn.closest(".space-y-5");
+
+    card.remove();
+    jobCounts();
   }
 });
 
