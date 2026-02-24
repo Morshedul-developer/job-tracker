@@ -99,6 +99,7 @@ mainContainer.addEventListener("click", function (event) {
     if (!companyExist) {
       interviewList.push(cardInfo);
     }
+    
     jobCounts();
     renderInterviewJobs();
   } else if (event.target.classList.contains("btn-rejected")) {
@@ -132,6 +133,7 @@ mainContainer.addEventListener("click", function (event) {
     if (!companyExist) {
       rejectedList.push(cardInfo);
     }
+    
     jobCounts();
     renderRejectedJobs();
   } 
