@@ -62,10 +62,12 @@ document.getElementById("job-list").addEventListener("click", function (event) {
 
   if (clickedElement.classList.contains("btn-interview")) {
     status.innerText = "INTERVIEWED";
+    status.classList.add("text-success");
     interviewContainer.appendChild(card);
   }
   if (clickedElement.classList.contains("btn-rejected")) {
     status.innerText = "REJECTED";
+    status.classList.add("text-error");
     rejectedContainer.appendChild(card);
   }
   if (clickedElement.classList.contains("btn-delete")) {
