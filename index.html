@@ -33,7 +33,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-[#F8FAFC] h-screen">
+  <body class="bg-[#F8FAFC] h-full">
     <header class="max-w-[70%] mx-auto pt-5 mb-8">
       <h1 class="text-[#002C5C] text-[32px] font-bold leading-8 mb-5 mt-3">
         Job Tracker
@@ -41,17 +41,17 @@
       <div class="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-4">
         <div class="bg-white p-5 border border-gray-200 rounded-lg">
           <p class="text-[14px] font-medium mb-2">Total</p>
-          <span id="total" class="text-[24px] text-[#002C5C] font-bold">0</span>
+          <span id="total-count" class="text-[24px] text-[#002C5C] font-bold">0</span>
         </div>
         <div class="bg-white p-5 border border-gray-200 rounded-lg">
           <p class="text-[14px] font-medium mb-2">Interview</p>
-          <span id="interview" class="text-[24px] text-[#10B981] font-bold"
+          <span id="interview-count" class="text-[24px] text-[#10B981] font-bold"
             >0</span
           >
         </div>
         <div class="bg-white p-5 border border-gray-200 rounded-lg">
           <p class="text-[14px] font-medium mb-2">Rejected</p>
-          <span id="rejected" class="text-[24px] text-[#EF4444] font-bold"
+          <span id="rejected-count" class="text-[24px] text-[#EF4444] font-bold"
             >0</span
           >
         </div>
@@ -75,11 +75,6 @@
             Rejected
           </button>
         </div>
-
-        <!-- filter section -->
-        <!-- <div id="filter-section" class="space-y-4 hidden">
-
-        </div> -->
 
         <!-- job list -->
         <div id="job-list" class="grid gap-2 sm:gap-4">
@@ -406,7 +401,7 @@
         </div>
 
         <!-- no jobs -->
-         <div id="no-jobs" class="text-center bg-white border border-gray-200 rounded-lg py-28 hidden">
+         <div id="no-jobs" class="text-center bg-white border border-gray-200 rounded-lg py-25 hidden">
           <img class="mx-auto" src="./assets/jobs.png" alt="">
           <h5 class="text-[24px] leading-8 font-semibold mb-1">No jobs available</h5>
           <p class="leading-[22px] text-gray-500">Check back soon for new job opportunities</p>
