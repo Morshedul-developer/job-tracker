@@ -14,25 +14,22 @@ function toggleButtons(tab) {
     const tabName = document.getElementById(`tab-${t}`);
     if (t === tab) {
       tabName.classList.add("btn-primary");
-    } 
-    else {
+    } else {
       tabName.classList.remove("btn-primary");
     }
   }
 
   const containers = [allContainer, interviewContainer, rejectedContainer];
 
-  for(const container of containers) {
+  for (const container of containers) {
     container.classList.add("hidden");
   }
 
-  if(tab === "all") {
+  if (tab === "all") {
     allContainer.classList.remove("hidden");
-  }
-  else if(tab === "interview") {
+  } else if (tab === "interview") {
     interviewContainer.classList.remove("hidden");
-  }
-  else {
+  } else {
     rejectedContainer.classList.remove("hidden");
   }
 }
@@ -41,20 +38,23 @@ total.innerText = allContainer.children.length;
 available.innerText = allContainer.children.length;
 
 // main functionality
-document.getElementById("job-list").addEventListener("click", function(event) {
+document.getElementById("job-list").addEventListener("click", function (event) {
   const clickedElement = event.target;
   const card = clickedElement.closest(".card");
+  const cardParent = card.parentNode;
   const status = card.querySelector(".not-applied");
 
-  if(clickedElement.classList.contains("btn-interview")) {
-    status.innerText = "INTERVIEW";
+  if (clickedElement.classList.contains("btn-interview")) {
+    status.innerText = "INTERVIEWED";
     interviewContainer.appendChild(card);
   }
-  if(clickedElement.classList.contains("btn-rejected")) {
+  if (clickedElement.classList.contains("btn-rejected")) {
     status.innerText = "REJECTED";
     rejectedContainer.appendChild(card);
   }
-  if(clickedElement.classList.contains("btn-delete") || clickedElement.classList.contains("fa-trash-can")) {
-    card.remove();
+  if (clickedElement.classList.contains("btn-delete")) {
+    cardParent.removeChild(card);
+    total.innerText = allContainer.children.length;
+    available.innerText = allContainer.children.length;
   }
 });
