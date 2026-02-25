@@ -1,7 +1,11 @@
 const currentTab = "all";
 
+const allContainer = document.getElementById("all-container");
+const interviewContainer = document.getElementById("interview-container");
+const rejectedContainer = document.getElementById("rejected-container");
+
+
 function toggleButtons(tab) {
-  console.log(tab);
   const tabs = ["all", "interview", "rejected"];
 
   for (const t of tabs) {
@@ -13,4 +17,21 @@ function toggleButtons(tab) {
       tabName.classList.remove("btn-primary");
     }
   }
+
+  const containers = [allContainer, interviewContainer, rejectedContainer];
+
+  for(const container of containers) {
+    container.classList.add("hidden");
+  }
+
+  if(tab === "all") {
+    allContainer.classList.remove("hidden");
+  }
+  else if(tab === "interview") {
+    interviewContainer.classList.remove("hidden");
+  }
+  else {
+    rejectedContainer.classList.remove("hidden");
+  }
 }
+toggleButtons(currentTab);
