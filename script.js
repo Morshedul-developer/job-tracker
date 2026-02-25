@@ -4,6 +4,8 @@ const allContainer = document.getElementById("all-container");
 const interviewContainer = document.getElementById("interview-container");
 const rejectedContainer = document.getElementById("rejected-container");
 
+const total = document.getElementById("total");
+const available = document.getElementById("available-jobs");
 
 function toggleButtons(tab) {
   const tabs = ["all", "interview", "rejected"];
@@ -35,3 +37,24 @@ function toggleButtons(tab) {
   }
 }
 toggleButtons(currentTab);
+total.innerText = allContainer.children.length;
+available.innerText = allContainer.children.length;
+
+// main functionality
+document.getElementById("job-list").addEventListener("click", function(event) {
+  const clickedElement = event.target;
+  const card = clickedElement.closest(".card");
+  const status = card.querySelector(".not-applied");
+
+  if(clickedElement.classList.contains("btn-interview")) {
+    status.innerText = "INTERVIEW";
+    interviewContainer.appendChild(card);
+  }
+  if(clickedElement.classList.contains("btn-rejected")) {
+    status.innerText = "REJECTED";
+    rejectedContainer.appendChild(card);
+  }
+  if(clickedElement.classList.contains("btn-delete") || clickedElement.classList.contains("fa-trash-can")) {
+    card.remove();
+  }
+});
