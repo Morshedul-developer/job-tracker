@@ -41,11 +41,15 @@
       <div class="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-4">
         <div class="bg-white p-5 border border-gray-200 rounded-lg">
           <p class="text-[14px] font-medium mb-2">Total</p>
-          <span id="total-count" class="text-[24px] text-[#002C5C] font-bold">0</span>
+          <span id="total-count" class="text-[24px] text-[#002C5C] font-bold"
+            >0</span
+          >
         </div>
         <div class="bg-white p-5 border border-gray-200 rounded-lg">
           <p class="text-[14px] font-medium mb-2">Interview</p>
-          <span id="interview-count" class="text-[24px] text-[#10B981] font-bold"
+          <span
+            id="interview-count"
+            class="text-[24px] text-[#10B981] font-bold"
             >0</span
           >
         </div>
@@ -60,43 +64,58 @@
     <hr class="border-t border-gray-300 mb-8" />
 
     <main class="max-w-[70%] mx-auto pb-20">
-        <div class="flex justify-between mb-6">
-          <strong>Available Jobs</strong>
-          <p class="text-gray-500"><span id="available-jobs">0</span> jobs</p>
-        </div>
+      <div class="flex justify-between mb-6">
+        <strong>Available Jobs</strong>
+        <p class="text-gray-500"><span id="available-jobs">0</span> jobs</p>
+      </div>
 
-        <!-- buttons -->
-        <div class="flex flex-col sm:flex-row gap-2 mb-4">
-          <button onclick="toggleButtons('all')" id="tab-all" class="btn">All</button>
-          <button onclick="toggleButtons('interview')" id="tab-interview" class="btn">
-            Interview
-          </button>
-          <button onclick="toggleButtons('rejected')" id="tab-rejected" class="btn">
-            Rejected
-          </button>
-        </div>
+      <!-- buttons -->
+      <div class="flex flex-col sm:flex-row gap-2 mb-4">
+        <button onclick="switchTab('tab-all')" id="tab-all" class="btn">
+          All
+        </button>
+        <button
+          onclick="switchTab('tab-interview')"
+          id="tab-interview"
+          class="btn"
+        >
+          Interview
+        </button>
+        <button
+          onclick="switchTab('tab-rejected')"
+          id="tab-rejected"
+          class="btn"
+        >
+          Rejected
+        </button>
+      </div>
 
-        <!-- job list -->
-        <div id="job-list" class="grid gap-2 sm:gap-4">
-          <section id="all-container" class="grid gap-2 sm:gap-4">
-            <!-- card-1 -->
-          <div class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg">
+      <!-- job list -->
+      <div id="job-list" class="grid gap-2 sm:gap-4">
+        <section id="all-container" class="grid gap-2 sm:gap-4">
+          <!-- card-1 -->
+          <div
+            class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg"
+          >
             <div class="flex justify-between items-center">
               <div>
-                <h2 class="company text-[18px] font-semibold leading-[26px] mb-1">
+                <h2
+                  class="company text-[18px] font-semibold leading-[26px] mb-1"
+                >
                   Mobile First Corp
                 </h2>
                 <h3 class="position leading-[22px] text-gray-500">
                   React Native Developer
                 </h3>
               </div>
-              
-                <button
+
+              <button
                 class="btn-delete w-10 h-10 flex items-center justify-center border rounded-full btn btn-outline btn-error"
               >
-                <i class="fa-regular fa-trash-can text-[14px] pointer-events-none"></i>
+                <i
+                  class="fa-regular fa-trash-can text-[14px] pointer-events-none"
+                ></i>
               </button>
-              
             </div>
             <div class="flex gap-7 text-gray-500 text-[14px]">
               <p class="location">Remote</p>
@@ -117,15 +136,23 @@
               </p>
             </div>
             <div class="flex gap-2 flex-col sm:flex-row">
-              <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
-              <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
+              <button class="btn-interview btn btn-outline btn-success">
+                INTERVIEW
+              </button>
+              <button class="btn-rejected btn btn-outline btn-error">
+                REJECTED
+              </button>
             </div>
           </div>
           <!-- card-2 -->
-          <div class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg">
+          <div
+            class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg"
+          >
             <div class="flex justify-between items-center">
               <div>
-                <h2 class="company text-[18px] font-semibold leading-[26px] mb-1">
+                <h2
+                  class="company text-[18px] font-semibold leading-[26px] mb-1"
+                >
                   WebFlow Agency
                 </h2>
                 <h3 class="position leading-[22px] text-gray-500">
@@ -135,7 +162,9 @@
               <button
                 class="btn-delete w-10 h-10 flex items-center justify-center border rounded-full btn btn-outline btn-error"
               >
-                <i class="fa-regular fa-trash-can text-[14px] pointer-events-none"></i>
+                <i
+                  class="fa-regular fa-trash-can text-[14px] pointer-events-none"
+                ></i>
               </button>
             </div>
             <div class="flex gap-7 text-gray-500 text-[14px]">
@@ -157,15 +186,23 @@
               </p>
             </div>
             <div class="flex gap-2 flex-col sm:flex-row">
-              <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
-              <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
+              <button class="btn-interview btn btn-outline btn-success">
+                INTERVIEW
+              </button>
+              <button class="btn-rejected btn btn-outline btn-error">
+                REJECTED
+              </button>
             </div>
           </div>
           <!-- card-3 -->
-          <div class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg">
+          <div
+            class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg"
+          >
             <div class="flex justify-between items-center">
               <div>
-                <h2 class="company text-[18px] font-semibold leading-[26px] mb-1">
+                <h2
+                  class="company text-[18px] font-semibold leading-[26px] mb-1"
+                >
                   DataViz Solutions
                 </h2>
                 <h3 class="position leading-[22px] text-gray-500">
@@ -175,7 +212,9 @@
               <button
                 class="btn-delete w-10 h-10 flex items-center justify-center border rounded-full btn btn-outline btn-error"
               >
-                <i class="fa-regular fa-trash-can text-[14px] pointer-events-none"></i>
+                <i
+                  class="fa-regular fa-trash-can text-[14px] pointer-events-none"
+                ></i>
               </button>
             </div>
             <div class="flex gap-7 text-gray-500 text-[14px]">
@@ -197,23 +236,35 @@
               </p>
             </div>
             <div class="flex gap-2 flex-col sm:flex-row">
-              <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
-              <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
+              <button class="btn-interview btn btn-outline btn-success">
+                INTERVIEW
+              </button>
+              <button class="btn-rejected btn btn-outline btn-error">
+                REJECTED
+              </button>
             </div>
           </div>
           <!-- card-4 -->
-          <div class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg">
+          <div
+            class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg"
+          >
             <div class="flex justify-between items-center">
               <div>
-                <h2 class="company text-[18px] font-semibold leading-[26px] mb-1">
+                <h2
+                  class="company text-[18px] font-semibold leading-[26px] mb-1"
+                >
                   CloudFirst Inc
                 </h2>
-                <h3 class="position leading-[22px] text-gray-500">Backend Developer</h3>
+                <h3 class="position leading-[22px] text-gray-500">
+                  Backend Developer
+                </h3>
               </div>
               <button
                 class="btn-delete w-10 h-10 flex items-center justify-center border rounded-full btn btn-outline btn-error"
               >
-                <i class="fa-regular fa-trash-can text-[14px] pointer-events-none"></i>
+                <i
+                  class="fa-regular fa-trash-can text-[14px] pointer-events-none"
+                ></i>
               </button>
             </div>
             <div class="flex gap-7 text-gray-500 text-[14px]">
@@ -235,23 +286,35 @@
               </p>
             </div>
             <div class="flex gap-2 flex-col sm:flex-row">
-              <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
-              <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
+              <button class="btn-interview btn btn-outline btn-success">
+                INTERVIEW
+              </button>
+              <button class="btn-rejected btn btn-outline btn-error">
+                REJECTED
+              </button>
             </div>
           </div>
           <!-- card-5 -->
-          <div class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg">
+          <div
+            class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg"
+          >
             <div class="flex justify-between items-center">
               <div>
-                <h2 class="company text-[18px] font-semibold leading-[26px] mb-1">
+                <h2
+                  class="company text-[18px] font-semibold leading-[26px] mb-1"
+                >
                   Innovation Labs
                 </h2>
-                <h3 class="position leading-[22px] text-gray-500">UI/UX Engineer</h3>
+                <h3 class="position leading-[22px] text-gray-500">
+                  UI/UX Engineer
+                </h3>
               </div>
               <button
                 class="btn-delete w-10 h-10 flex items-center justify-center border rounded-full btn btn-outline btn-error"
               >
-                <i class="fa-regular fa-trash-can text-[14px] pointer-events-none"></i>
+                <i
+                  class="fa-regular fa-trash-can text-[14px] pointer-events-none"
+                ></i>
               </button>
             </div>
             <div class="flex gap-7 text-gray-500 text-[14px]">
@@ -274,15 +337,23 @@
               </p>
             </div>
             <div class="flex gap-2 flex-col sm:flex-row">
-              <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
-              <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
+              <button class="btn-interview btn btn-outline btn-success">
+                INTERVIEW
+              </button>
+              <button class="btn-rejected btn btn-outline btn-error">
+                REJECTED
+              </button>
             </div>
           </div>
           <!-- card-6 -->
-          <div class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg">
+          <div
+            class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg"
+          >
             <div class="flex justify-between items-center">
               <div>
-                <h2 class="company text-[18px] font-semibold leading-[26px] mb-1">
+                <h2
+                  class="company text-[18px] font-semibold leading-[26px] mb-1"
+                >
                   MegaCorp Solutions
                 </h2>
                 <h3 class="position leading-[22px] text-gray-500">
@@ -292,7 +363,9 @@
               <button
                 class="btn-delete w-10 h-10 flex items-center justify-center border rounded-full btn btn-outline btn-error"
               >
-                <i class="fa-regular fa-trash-can text-[14px] pointer-events-none"></i>
+                <i
+                  class="fa-regular fa-trash-can text-[14px] pointer-events-none"
+                ></i>
               </button>
             </div>
             <div class="flex gap-7 text-gray-500 text-[14px]">
@@ -309,19 +382,29 @@
                 NOT APPLIED
               </p>
               <p class="description leading-5 text-[14px] text-[#323B49]">
-                Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.
+                Build enterprise applications with JavaScript and modern
+                frameworks. We offer competitive compensation, health insurance,
+                and professional development opportunities.
               </p>
             </div>
             <div class="flex gap-2 flex-col sm:flex-row">
-              <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
-              <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
+              <button class="btn-interview btn btn-outline btn-success">
+                INTERVIEW
+              </button>
+              <button class="btn-rejected btn btn-outline btn-error">
+                REJECTED
+              </button>
             </div>
           </div>
           <!-- card-7 -->
-          <div class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg">
+          <div
+            class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg"
+          >
             <div class="flex justify-between items-center">
               <div>
-                <h2 class="company text-[18px] font-semibold leading-[26px] mb-1">
+                <h2
+                  class="company text-[18px] font-semibold leading-[26px] mb-1"
+                >
                   StartupXYZ
                 </h2>
                 <h3 class="position leading-[22px] text-gray-500">
@@ -331,7 +414,9 @@
               <button
                 class="btn-delete w-10 h-10 flex items-center justify-center border rounded-full btn btn-outline btn-error"
               >
-                <i class="fa-regular fa-trash-can text-[14px] pointer-events-none"></i>
+                <i
+                  class="fa-regular fa-trash-can text-[14px] pointer-events-none"
+                ></i>
               </button>
             </div>
             <div class="flex gap-7 text-gray-500 text-[14px]">
@@ -348,19 +433,29 @@
                 NOT APPLIED
               </p>
               <p class="description leading-5 text-[14px] text-[#323B49]">
-                Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.
+                Join our fast-growing startup and work on our core platform.
+                Experience with Node.js and React required. Great benefits and
+                equity package included.
               </p>
             </div>
             <div class="flex gap-2 flex-col sm:flex-row">
-              <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
-              <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
+              <button class="btn-interview btn btn-outline btn-success">
+                INTERVIEW
+              </button>
+              <button class="btn-rejected btn btn-outline btn-error">
+                REJECTED
+              </button>
             </div>
           </div>
           <!-- card-8 -->
-          <div class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg">
+          <div
+            class="card space-y-5 bg-white p-6 border border-gray-200 rounded-lg"
+          >
             <div class="flex justify-between items-center">
               <div>
-                <h2 class="company text-[18px] font-semibold leading-[26px] mb-1">
+                <h2
+                  class="company text-[18px] font-semibold leading-[26px] mb-1"
+                >
                   TechCorp Industries
                 </h2>
                 <h3 class="position leading-[22px] text-gray-500">
@@ -370,7 +465,9 @@
               <button
                 class="btn-delete w-10 h-10 flex items-center justify-center border rounded-full btn btn-outline btn-error"
               >
-                <i class="fa-regular fa-trash-can text-[14px] pointer-events-none"></i>
+                <i
+                  class="fa-regular fa-trash-can text-[14px] pointer-events-none"
+                ></i>
               </button>
             </div>
             <div class="flex gap-7 text-gray-500 text-[14px]">
@@ -387,28 +484,47 @@
                 NOT APPLIED
               </p>
               <p class="description leading-5 text-[14px] text-[#323B49]">
-                We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.
+                We are looking for an experienced Frontend Developer to build
+                scalable web applications using React and TypeScript. You will
+                work with a talented team on cutting-edge projects.
               </p>
             </div>
             <div class="flex gap-2 flex-col sm:flex-row">
-              <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
-              <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
+              <button class="btn-interview btn btn-outline btn-success">
+                INTERVIEW
+              </button>
+              <button class="btn-rejected btn btn-outline btn-error">
+                REJECTED
+              </button>
             </div>
           </div>
-          </section>
-          <section id="interview-container" class="grid gap-2 sm:gap-4 hidden"></section>
-          <section id="rejected-container" class="grid gap-2 sm:gap-4 hidden"></section>
-        </div>
+        </section>
+        <section
+          id="interview-container"
+          class="grid gap-2 sm:gap-4 hidden"
+        ></section>
+        <section
+          id="rejected-container"
+          class="grid gap-2 sm:gap-4 hidden"
+        ></section>
+      </div>
 
-        <!-- no jobs -->
-         <div id="no-jobs" class="text-center bg-white border border-gray-200 rounded-lg py-25 hidden">
-          <img class="mx-auto" src="./assets/jobs.png" alt="">
-          <h5 class="text-[24px] leading-8 font-semibold mb-1">No jobs available</h5>
-          <p class="leading-[22px] text-gray-500">Check back soon for new job opportunities</p>
-         </div>
+      <!-- no jobs -->
+      <div
+        id="no-jobs"
+        class="text-center bg-white border border-gray-200 rounded-lg py-25 hidden"
+      >
+        <img class="mx-auto" src="./assets/jobs.png" alt="" />
+        <h5 class="text-[24px] leading-8 font-semibold mb-1">
+          No jobs available
+        </h5>
+        <p class="leading-[22px] text-gray-500">
+          Check back soon for new job opportunities
+        </p>
+      </div>
     </main>
 
     <!-- script -->
-     <script src="./script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

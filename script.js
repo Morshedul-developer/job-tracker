@@ -1,9 +1,8 @@
-let currentTab = "all";
+let currentTab = "tab-all";
 
 const allContainer = document.getElementById("all-container");
 const interviewContainer = document.getElementById("interview-container");
 const rejectedContainer = document.getElementById("rejected-container");
-
 const noJobs = document.getElementById("no-jobs");
 
 const totalCount = document.getElementById("total-count");
@@ -11,66 +10,47 @@ const interviewCount = document.getElementById("interview-count");
 const rejectedCount = document.getElementById("rejected-count");
 const available = document.getElementById("available-jobs");
 
-// toggle buttons
-function toggleButtons(tab) {
+function switchTab(tab) {
   currentTab = tab;
-  const tabs = ["all", "interview", "rejected"];
-
-  for (const t of tabs) {
-    const tabName = document.getElementById(`tab-${t}`);
+  const tabs = ["tab-all", "tab-interview", "tab-rejected"];
+  for (let t of tabs) {
     if (t === tab) {
-      tabName.classList.add("btn-primary");
+      document.getElementById(t).classList.add("btn-primary");
     } else {
-      tabName.classList.remove("btn-primary");
+      document.getElementById(t).classList.remove("btn-primary");
     }
   }
-
   const containers = [allContainer, interviewContainer, rejectedContainer];
 
   for (const container of containers) {
     container.classList.add("hidden");
   }
-
-  noJobs.classList.add("hidden");
-
-  if (tab === "all") {
+  if (currentTab === "tab-all") {
     allContainer.classList.remove("hidden");
-    // if(allContainer.children.length < 1) {
-    //   noJobs.classList.remove("hidden");
-    // }
-  } else if (tab === "interview") {
+  } else if (currentTab === "tab-interview") {
     interviewContainer.classList.remove("hidden");
-    // if(interviewContainer.children.length < 1) {
-    //   noJobs.classList.remove("hidden");
-    // }
   } else {
     rejectedContainer.classList.remove("hidden");
-    // if(rejectedContainer.children.length < 1) {
-    //   noJobs.classList.remove("hidden");
-    // }
   }
   updateCounts();
 }
-toggleButtons(currentTab);
+switchTab(currentTab);
 
-// main functionality
-document.getElementById("job-list").addEventListener("click", function (event) {
-  const clickedElement = event.target;
+document.getElementById("job-list").addEventListener("click", function (e) {
+  const clickedElement = e.target;
   const card = clickedElement.closest(".card");
   const cardParent = card.parentNode;
   const status = card.querySelector(".not-applied");
 
   if (clickedElement.classList.contains("btn-interview")) {
+    interviewContainer.appendChild(card);
     status.innerText = "INTERVIEWED";
     status.classList.add("text-success");
-    interviewContainer.appendChild(card);
-  }
-  if (clickedElement.classList.contains("btn-rejected")) {
+  } else if (clickedElement.classList.contains("btn-rejected")) {
+    rejectedContainer.appendChild(card);
     status.innerText = "REJECTED";
     status.classList.add("text-error");
-    rejectedContainer.appendChild(card);
-  }
-  if (clickedElement.classList.contains("btn-delete")) {
+  } else if (clickedElement.classList.contains("btn-delete")) {
     cardParent.removeChild(card);
   }
   updateCounts();
@@ -78,17 +58,15 @@ document.getElementById("job-list").addEventListener("click", function (event) {
 
 function updateCounts() {
   const counts = {
-    all: allContainer.children.length,
-    interview: interviewContainer.children.length,
-    rejected: rejectedContainer.children.length
+    "tab-all": allContainer.children.length,
+    "tab-interview": interviewContainer.children.length,
+    "tab-rejected": rejectedContainer.children.length,
   };
-  totalCount.innerText = counts.all;
-  interviewCount.innerText = counts.interview;
-  rejectedCount.innerText = counts.rejected;
-
+  totalCount.innerText = counts["tab-all"];
+  interviewCount.innerText = counts["tab-interview"];
+  rejectedCount.innerText = counts["tab-rejected"];
   available.innerText = counts[currentTab];
-
-  if(counts[currentTab] < 1) {
+  if (counts[currentTab] < 1) {
     noJobs.classList.remove("hidden");
   } else {
     noJobs.classList.add("hidden");
