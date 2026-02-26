@@ -44,12 +44,14 @@ document.getElementById("job-list").addEventListener("click", function (e) {
 
   if (clickedElement.classList.contains("btn-interview")) {
     interviewContainer.appendChild(card);
-    status.innerText = "INTERVIEWED";
+    status.classList.remove("text-error");
     status.classList.add("text-success");
+    status.innerText = "INTERVIEWED";
   } else if (clickedElement.classList.contains("btn-rejected")) {
     rejectedContainer.appendChild(card);
-    status.innerText = "REJECTED";
+    status.classList.remove("text-success");
     status.classList.add("text-error");
+    status.innerText = "REJECTED";
   } else if (clickedElement.classList.contains("btn-delete")) {
     cardParent.removeChild(card);
   }
