@@ -46,7 +46,7 @@ document.getElementById("job-list").addEventListener("click", function (e) {
     interviewContainer.appendChild(card);
     status.classList.remove("text-error");
     status.classList.add("text-success");
-    status.innerText = "INTERVIEWED";
+    status.innerText = "INTERVIEW";
   } else if (clickedElement.classList.contains("btn-rejected")) {
     rejectedContainer.appendChild(card);
     status.classList.remove("text-success");
